@@ -4,11 +4,11 @@
       <%_ if (options.addPrerender) { _%>
       <router-link to="/index.html">Home</router-link>|
       <router-link to="/about.html">About</router-link>|
-      <router-link to="/i18n.html">About</router-link>
+      <router-link to="/i18n.html">I18N</router-link>
       <%_ } else { _%>
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>|
-      <router-link to="/i18n">About</router-link>
+      <router-link to="/i18n">I18N</router-link>
       <%_ } _%>
     </div>
     <router-view />
