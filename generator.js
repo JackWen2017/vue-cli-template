@@ -40,7 +40,7 @@ module.exports = (api, options) => {
     }
   });
   api.render("./template");
-  // if (options.addPrerender) {
-  //   api.render("./templateprerender");
-  // }
+  if (options.addPrerender) {
+    api.render("./templateprerender");
+  }
 };

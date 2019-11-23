@@ -4,8 +4,10 @@ import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
-const isPrerender = options.addPrerender;
-
+let isPrerender = false
+<%_ if (options.addPrerender) { _%>
+  isPrerender = true
+<%_ } _%>
 const routes = [
   {
     path: isPrerender ? "/index.html" : "/",
