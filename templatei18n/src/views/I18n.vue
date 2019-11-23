@@ -22,7 +22,7 @@ export default {
   <%_ if (options.addPrerender) { _%>
   metaInfo() {
     return {
-      title: "About"
+      title: "I18N"
     };
   }
   <%_ } _%>
