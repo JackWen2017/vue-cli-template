@@ -5,7 +5,7 @@ module.exports = (api, options) => {
     "vue-router": "^3.1.3",
     vuex: "^3.0.1"
   };
-  if (options.addExample) {
+  if (options.addPrerender) {
     dependencies["prerender-spa-plugin"] = "^3.4.0";
     dependencies["vue-meta"] = "^2.3.1";
   }
@@ -40,7 +40,7 @@ module.exports = (api, options) => {
     }
   });
   api.render("./template");
-  if (options.addExample) {
+  if (options.addPrerender) {
     api.render("./templateprerender");
   }
 };
