@@ -18,5 +18,6 @@
     { "language": "html", "autoFix": true },
     { "language": "javascript", "autoFix": true },
     { "language": "vue", "autoFix": true }
-  ]
+  ],
+  "cSpell.words": ["Vuex"]
 }
