@@ -1,22 +1,16 @@
 module.exports = (api, options) => {
-  const dependencies = {
-    "core-js": "^3.3.2",
-    vue: "^2.6.10",
-    "vue-router": "^3.1.3",
-    vuex: "^3.0.1"
-  };
-  if (options.addPrerender) {
-    dependencies["prerender-spa-plugin"] = "^3.4.0";
-    dependencies["vue-meta"] = "^2.3.1";
-  }
-
   api.extendPackage({
     scripts: {
       serve: "vue-cli-service serve",
       build: "vue-cli-service build",
       lint: "vue-cli-service lint"
     },
-    dependencies,
+    dependencies: {
+      "core-js": "^3.3.2",
+      vue: "^2.6.10",
+      "vue-router": "^3.1.3",
+      vuex: "^3.0.1"
+    },
     devDependencies: {
       "@vue/cli-plugin-babel": "^4.0.0",
       "@vue/cli-plugin-eslint": "^4.0.0",
@@ -41,6 +35,20 @@ module.exports = (api, options) => {
   });
   api.render("./template");
   if (options.addPrerender) {
+    api.extendPackage({
+      dependencies: {
+        "prerender-spa-plugin": "^3.4.0",
+        "vue-meta": "^2.3.1"
+      }
+    });
     api.render("./templateprerender");
+  }
+  if (options.addI18n) {
+    api.extendPackage({
+      dependencies: {
+        "vue-i18n": "^8.15.0"
+      }
+    });
+    api.render("./templatei18n");
   }
 };
