@@ -1,0 +1,22 @@
+{
+  // 將預設關閉
+  "vetur.validation.template": false,
+  "vetur.validation.script": false,
+  "vetur.validation.style": false,
+  "editor.formatOnSave": false,
+  "javascript.validate.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.options": {
+    "extensions": [".html", ".js", ".vue"]
+  },
+  "eslint.validate": [
+    { "language": "html", "autoFix": true },
+    { "language": "javascript", "autoFix": true },
+    { "language": "vue", "autoFix": true }
+  ]
+}
