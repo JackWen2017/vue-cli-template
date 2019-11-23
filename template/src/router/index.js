@@ -1,36 +1,46 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+
+const isPrerender = options.addPrerender;
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: isPrerender ? "/index.html" : "/",
+    name: "home",
     component: Home
   },
   {
-    path: '/about',
-    name: 'about',
+    path: isPrerender ? "/about.html" : "/about",
+    name: "about",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/About.vue")
   }
-]
+];
+if (isPrerender) {
+  routes.push({
+    path: "*",
+    redirect: "/index.html"
+  });
+}
 
 const router = new VueRouter({
+  mode: isPrerender ? "history" : "hash",
   routes,
-  scrollBehavior (to, from, savePosition) {
+  scrollBehavior(to, from, savePosition) {
     if (savePosition) {
-      return savePosition
+      return savePosition;
     } else if (to.hash) {
-      return { selector: to.hash }
+      return { selector: to.hash };
     } else {
-      return { x: 0, y: 0 }
+      return { x: 0, y: 0 };
     }
   }
-})
+});
 
-export default router
+export default router;
