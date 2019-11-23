@@ -8,6 +8,17 @@
   </div>
 </template>
 
+<script>
+export default {
+  metaInfo() {
+    return {
+      titleTemplate: "%s - Vue Prerender"
+    };
+  }
+};
+</script>
+
+
 <style lang="scss">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

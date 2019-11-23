@@ -4,18 +4,14 @@ import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
-let isPrerender = false
-<%_ if (options.addPrerender) { _%>
-  isPrerender = true
-<%_ } _%>
 const routes = [
   {
-    path: isPrerender ? "/index.html" : "/",
+    path: "/",
     name: "home",
     component: Home
   },
   {
-    path: isPrerender ? "/about.html" : "/about",
+    path: "/about",
     name: "about",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -24,15 +20,8 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   }
 ];
-if (isPrerender) {
-  routes.push({
-    path: "*",
-    redirect: "/index.html"
-  });
-}
 
 const router = new VueRouter({
-  mode: isPrerender ? "history" : "hash",
   routes,
   scrollBehavior(to, from, savePosition) {
     if (savePosition) {
