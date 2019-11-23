@@ -1,6 +1,6 @@
 module.exports = (api, options) => {
   api.extendPackage({
-    useConfigFiles: true,
+    useConfigFiles: false,
     scripts: {
       serve: "vue-cli-service serve",
       build: "vue-cli-service build",
