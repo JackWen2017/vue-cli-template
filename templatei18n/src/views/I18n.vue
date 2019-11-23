@@ -18,7 +18,14 @@ export default {
       // this.$i18n.locale = locale
       this.$store.dispatch("SET_LANG", locale);
     }
+  },
+  <%_ if (options.addPrerender) { _%>
+  metaInfo() {
+    return {
+      title: "About"
+    };
   }
+  <%_ } _%>
 };
 </script>
 
